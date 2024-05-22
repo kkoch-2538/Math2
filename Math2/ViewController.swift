@@ -23,13 +23,44 @@ class ViewController: UIViewController {
     @IBOutlet var Button11: UIButton!
     @IBOutlet var Button12: UIButton!
     
+    var select = 0
     
     override func viewDidLoad() {
+        
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
         super.viewDidLoad()
+        
     }
-   
+    @IBAction func nextButton(){
+        
+        var Button4 = 0
+        var Button6 = 0
+        var Button8 = 0
+        var Button5 = "?"
+        var Button7 = "?"
+       
+        var label = Int.random(in: 1...50)
+        var Button1 = Int.random(in: 1...9)
+        var Button2 = Int.random(in: 1...9)
+        var Button3 = Int.random(in: 1...9)
+        
+    }
+    
+    @IBAction func changeButton1(){
+        select = 1
+    }
+    
+    @IBAction func changeButton2(){
+        select = 2
+    }
+    
+    @IBAction func plus(){
+        if(select == 1){
+        
+        }
+    }
     
 }
+
 
