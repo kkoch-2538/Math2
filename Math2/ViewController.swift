@@ -55,9 +55,76 @@ class ViewController: UIViewController {
         select = 2
     }
     
+    @IBAction func numberButton(){
+        select = 3
+    }
+    
+    @IBAction func numberButton2(){
+        select = 4
+    }
+    
+    @IBAction func numberButton3(){
+        select = 5
+    }
+    
     @IBAction func plus(){
         if(select == 1){
-        
+            Button5.titleLabel?.adjustsFontSizeToFitWidth = true
+            Button5.setTitle("+", for: .normal)
+        }else if(select == 2){
+            Button7.setTitle("+", for: .normal)
+        }
+    }
+    
+    @IBAction func minus(){
+        if(select == 1){
+            Button5.setTitle("-", for: .normal)
+        }else if(select == 2){
+            Button7.setTitle("-", for: .normal)
+        }
+    }
+    @IBAction func times(){
+        if(select == 1){
+            Button5.setTitle("×", for: .normal)
+        }else if(select == 2){
+            Button7.setTitle("×", for: .normal)
+        }
+    }
+    @IBAction func division(){
+        if(select == 1){
+            Button5.setTitle("÷", for: .normal)
+        }else if(select == 2){
+            Button7.setTitle("÷", for: .normal)
+        }
+    }
+    
+    @IBAction func number1(){
+        if(select == 3){
+            
+        }else if(select == 4){
+            
+        }else if(select == 5){
+            
+        }
+    }
+    
+    @IBAction func number2(){
+        if(select == 3){
+            
+        }else if(select == 4){
+            
+        }else if(select == 5){
+            
+        }
+    }
+    
+    @IBAction func number3(){
+        if(select == 3){
+            
+        }else if(select == 4){
+            
+        }else if(select == 5){
+            
         }
     }
     
