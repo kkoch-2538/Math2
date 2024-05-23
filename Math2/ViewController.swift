@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     var select = 0
     
+    
     override func viewDidLoad() {
         
         label.layer.cornerRadius = 10
@@ -34,12 +35,12 @@ class ViewController: UIViewController {
     }
     @IBAction func nextButton(){
         
-        var Button4 = 0
-        var Button6 = 0
-        var Button8 = 0
-        var Button5 = "?"
-        var Button7 = "?"
-       
+        Button4.setTitle("0", for: .normal)
+        Button6.setTitle("0", for: .normal)
+        Button8.setTitle("0", for: .normal)
+        Button5.setTitle("?", for: .normal)
+        Button7.setTitle("?", for: .normal)
+        
         var label = Int.random(in: 1...50)
         var Button1 = Int.random(in: 1...9)
         var Button2 = Int.random(in: 1...9)
