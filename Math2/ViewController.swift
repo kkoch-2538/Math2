@@ -26,27 +26,31 @@ class ViewController: UIViewController {
     var select = 0
     
     
+    
+    
     override func viewDidLoad() {
         
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
         super.viewDidLoad()
-        
+       
     }
+    
+    @IBAction func backhomeButton(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func nextButton(){
-        
+       
         Button4.setTitle("0", for: .normal)
         Button6.setTitle("0", for: .normal)
         Button8.setTitle("0", for: .normal)
         Button5.setTitle("?", for: .normal)
         Button7.setTitle("?", for: .normal)
         
-        var label = Int.random(in: 1...50)
-        var Button1 = Int.random(in: 1...9)
-        var Button2 = Int.random(in: 1...9)
-        var Button3 = Int.random(in: 1...9)
-        
+        based()
     }
+    
     
     @IBAction func changeButton1(){
         select = 1
@@ -98,35 +102,71 @@ class ViewController: UIViewController {
             Button7.setTitle("÷", for: .normal)
         }
     }
+   
+    
     
     @IBAction func number1(){
         if(select == 3){
-            
+            //let number1 = Int.random(in: 1...9)
+            //let num1 = String(number1)
+            //Button4.setTitle(num1, for: .normal)
         }else if(select == 4){
-            
+            //let number1 = Int.random(in: 1...9)
+           // let num1 = String(number1)
+           // Button6.setTitle(num1, for: .normal)
         }else if(select == 5){
-            
+           // let number1 = Int.random(in: 1...9)
+           // let num1 = String(number1)
+           // Button8.setTitle(num1, for: .normal)
         }
     }
     
     @IBAction func number2(){
         if(select == 3){
-            
+            //let number2 = Int.random(in: 1...9)
+            //let num2 = String(number2)
+            //Button4.setTitle(num2, for: .normal)
         }else if(select == 4){
-            
+           // let number2 = Int.random(in: 1...9)
+           // let num2 = String(number2)
+           // Button6.setTitle(num2, for: .normal)
         }else if(select == 5){
-            
+           // let number2 = Int.random(in: 1...9)
+           // let num2 = String(number2)
+           // Button8.setTitle(num2, for: .normal)
         }
     }
     
     @IBAction func number3(){
         if(select == 3){
-            
+            //let number3 = Int.random(in: 1...9)
+            //let num3 = String(number3)
+            //Button4.setTitle(num3, for: .normal)
         }else if(select == 4){
-            
+            //let number3 = Int.random(in: 1...9)
+            //let num3 = String(number3)
+            //Button6.setTitle(num3, for: .normal)
         }else if(select == 5){
-            
+            //let number3 = Int.random(in: 1...9)
+           // let num3 = String(number3)
+            //Button8.setTitle(num3, for: .normal)
         }
+    }
+    
+    func based(){
+        let number = Int.random(in: 1...50)
+        let number1 = Int.random(in: 1...9)
+        let number2 = Int.random(in: 1...9)
+        let number3 = Int.random(in: 1...9)
+    
+        let num1 = String(number1)
+        let num2 = String(number2)
+        let num3 = String(number3)
+        
+        label.text = String(number)
+        Button1.setTitle(num2, for: .normal)
+        Button2.setTitle(num2, for: .normal)
+        Button3.setTitle(num3, for: .normal)
     }
     
 }
