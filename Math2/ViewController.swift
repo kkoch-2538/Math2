@@ -157,8 +157,6 @@ class ViewController: UIViewController {
         number2 = Int.random(in: 1...9)
         number3 = Int.random(in: 1...9)
         
-        
-        
         num1 = String(number1)
         num2 = String(number2)
         num3 = String(number3)
