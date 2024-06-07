@@ -17,31 +17,60 @@ class ViewController: UIViewController {
     var num2: String!
     var num3: String!
 
-    @IBOutlet var label: UILabel!
+    var Anumber1: Int!
+    var Anumber2: Int!
+    var Anumber3: Int!
+    var Anumber4: Int!
+    
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var label2: UILabel!
     @IBOutlet var Button1: UIButton!
     @IBOutlet var Button2: UIButton!
     @IBOutlet var Button3: UIButton!
-    @IBOutlet var Button4: UIButton!
-    @IBOutlet var Button5: UIButton!
-    @IBOutlet var Button6: UIButton!
-    @IBOutlet var Button7: UIButton!
-    @IBOutlet var Button8: UIButton!
-    @IBOutlet var Button9: UIButton!
-    @IBOutlet var Button10: UIButton!
-    @IBOutlet var Button11: UIButton!
-    @IBOutlet var Button12: UIButton!
+    @IBOutlet var AnswerNumber1: UIButton!
+    @IBOutlet var AnswerNumber2: UIButton!
+    @IBOutlet var AnswerNumber3: UIButton!
+    @IBOutlet var AnswerNumber4: UIButton!
+    @IBOutlet var AnswerNumber5: UIButton!
+    @IBOutlet var MarkButton1: UIButton!
+    @IBOutlet var MarkButton2: UIButton!
+    @IBOutlet var calculatButton1: UIButton!
+    @IBOutlet var calculatButton2: UIButton!
+    @IBOutlet var calculatButton3: UIButton!
+    @IBOutlet var calculatButton4: UIButton!
+    @IBOutlet var numberButon1: UIButton!
+    @IBOutlet var numberButon2: UIButton!
+    @IBOutlet var numberButon3: UIButton!
+    @IBOutlet var numberButon4: UIButton!
+    @IBOutlet var numberButon5: UIButton!
+    @IBOutlet var numberButon6: UIButton!
+    @IBOutlet var numberButon7: UIButton!
+    @IBOutlet var numberButon8: UIButton!
+    @IBOutlet var numberButon9: UIButton!
+    
     
     var select = 0
     
-    
-    
-    
+
     override func viewDidLoad() {
         based()
-        label.layer.cornerRadius = 10
-        label.clipsToBounds = true
+        label1.layer.cornerRadius = 10
+        label1.clipsToBounds = true
         super.viewDidLoad()
         
+        label2.layer.cornerRadius = 10
+        label2.clipsToBounds = true
+        super.viewDidLoad()
+        
+        set(button: numberButon1, str: "1")
+        set(button: numberButon2, str: "2")
+        set(button: numberButon3, str: "3")
+        set(button: numberButon4, str: "4")
+        set(button: numberButon5, str: "5")
+        set(button: numberButon6, str: "6")
+        set(button: numberButon7, str: "7")
+        set(button: numberButon8, str: "8")
+        set(button: numberButon9, str: "9")
     }
     
     @IBAction func backhomeButton(){
@@ -50,17 +79,15 @@ class ViewController: UIViewController {
     
     @IBAction func nextButton(){
         
-        //Button4.setTitle("0", for: .normal)
-        //Button6.setTitle("0", for: .normal)
-        //Button8.setTitle("0", for: .normal)
-        //Button5.setTitle("?", for: .normal)
-        //Button7.setTitle("?", for: .normal)
         
-        set(button: Button4, str: "0")
-        set(button: Button6, str: "0")
-        set(button: Button8, str: "0")
-        set(button: Button5, str: "?")
-        set(button: Button7, str: "?")
+        set(button: AnswerNumber1, str: "0")
+        set(button: AnswerNumber2, str: "0")
+        set(button: AnswerNumber3, str: "0")
+        set(button: AnswerNumber4, str: "0")
+        set(button: AnswerNumber5, str: "0")
+        set(button: MarkButton1, str: "?")
+        set(button: MarkButton2, str: "?")
+        
         
         based()
     }
@@ -74,81 +101,154 @@ class ViewController: UIViewController {
         select = 2
     }
     
-    @IBAction func numberButton(){
+    @IBAction func changeButton3(){
         select = 3
-        print(select)
     }
     
-    @IBAction func numberButton2(){
+    @IBAction func changeButton4(){
         select = 4
     }
     
-    @IBAction func numberButton3(){
+    @IBAction func markcheck1(){
         select = 5
     }
     
+    @IBAction func markcheck2(){
+        select = 6
+    }
+    
+    
     @IBAction func plus(){
-        if(select == 1){
-            Button5.titleLabel?.adjustsFontSizeToFitWidth = true
-            set(button: Button5, str: "+")
-        }else if(select == 2){
-            set(button: Button7, str: "+")
+        if(select == 5){
+            MarkButton1.titleLabel?.adjustsFontSizeToFitWidth = true
+            set(button: MarkButton1, str: "+")
+        }else if(select == 6){
+            set(button: MarkButton2, str: "+")
             
         }
     }
     
     @IBAction func minus(){
-        if(select == 1){
-            set(button: Button5, str: "-")
-        }else if(select == 2){
-            set(button: Button7, str: "-")
+        if(select == 5){
+            set(button: MarkButton1, str: "-")
+        }else if(select == 6){
+            set(button: MarkButton2, str: "-")
         }
     }
     @IBAction func times(){
-        if(select == 1){
-            set(button: Button5, str: "×")
-        }else if(select == 2){
-            set(button: Button7, str: "×")
+        if(select == 5){
+            set(button: MarkButton1, str: "×")
+        }else if(select == 6){
+            set(button: MarkButton2, str: "×")
         }
     }
     @IBAction func division(){
-        if(select == 1){
-            set(button: Button5, str: "÷")
-        }else if(select == 2){
-            set(button: Button7, str: "÷")
+        if(select == 5){
+            set(button: MarkButton1, str: "÷")
+        }else if(select == 6){
+            set(button: MarkButton2, str: "÷")
         }
     }
     
     
     
     @IBAction func numberCard1(){
-        if(select == 3){
-            set(button: Button4, str: self.num1)
+        if(select == 1){
+            set(button: AnswerNumber1, str: self.num1)
+        }else if(select == 2){
+            set(button: AnswerNumber2, str: self.num1)
         }else if(select == 4){
-            set(button: Button6, str: self.num1)
-        }else if(select == 5){
-            set(button: Button8, str: self.num1)
+            set(button: AnswerNumber5, str: self.num1)
         }
+        
     }
     
     @IBAction func numberCard2(){
-        if(select == 3){
-            set(button: Button4, str: self.num2)
+        if(select == 1){
+            set(button: AnswerNumber1, str: self.num2)
+        }else if(select == 2){
+            set(button: AnswerNumber2, str: self.num2)
         }else if(select == 4){
-            set(button: Button6, str: self.num2)
-        }else if(select == 5){
-            set(button: Button8, str: self.num2)
+            set(button: AnswerNumber5, str: self.num2)
         }
     }
     
     @IBAction func numberCard3(){
-        if(select == 3){
-            set(button: Button4, str: self.num3)
+        if(select == 1){
+            set(button: AnswerNumber1, str: self.num3)
+        }else if(select == 2){
+            set(button: AnswerNumber2, str: self.num3)
         }else if(select == 4){
-            set(button: Button6, str: self.num3)
-        }else if(select == 5){
-            set(button: Button8, str: self.num3)
+            set(button: AnswerNumber5, str: self.num3)
         }
+    }
+    
+    @IBAction func sameNumber1(){
+        set(button: AnswerNumber3, str: "1")
+        set(button: AnswerNumber4, str: "1")
+    }
+    
+    @IBAction func sameNumber2(){
+        set(button: AnswerNumber3, str: "2")
+        set(button: AnswerNumber4, str: "2")
+    }
+    
+    @IBAction func sameNumber3(){
+        set(button: AnswerNumber3, str: "3")
+        set(button: AnswerNumber4, str: "3")
+    }
+    
+    @IBAction func sameNumber4(){
+        set(button: AnswerNumber3, str: "4")
+        set(button: AnswerNumber4, str: "4")
+    }
+    
+    @IBAction func sameNumber5(){
+        set(button: AnswerNumber3, str: "5")
+        set(button: AnswerNumber4, str: "5")
+    }
+    
+    @IBAction func sameNumber6(){
+        set(button: AnswerNumber3, str: "6")
+        set(button: AnswerNumber4, str: "6")
+    }
+    
+    @IBAction func sameNumber7(){
+        set(button: AnswerNumber3, str: "7")
+        set(button: AnswerNumber4, str: "7")
+    }
+    
+    @IBAction func sameNumber8(){
+        set(button: AnswerNumber3, str: "8")
+        set(button: AnswerNumber4, str: "8")
+    }
+    
+    @IBAction func sameNumber9(){
+        set(button: AnswerNumber3, str: "9")
+        set(button: AnswerNumber4, str: "9")
+    }
+    
+    @IBAction func AnswerCheckButton(){
+        
+        var answerText1:String=MarkButton1.currentTitle ?? ""
+        var answerText2:String=MarkButton2.currentTitle ?? ""
+        var currentNumber: Int = 0
+        
+        Anumber1 = Int(num1)
+        Anumber2 = Int(num2)
+        Anumber3 = Int(num3)
+        if answerText1 == "+"{
+            currentNumber = Anumber1 + Anumber2
+        }else if answerText1 == "-"{
+            currentNumber = Anumber1 - Anumber2
+        }else if answerText1 == "×"{
+            currentNumber = Anumber1 * Anumber2
+        }
+
+        //var currentNumber: Int = 0
+       
+        
+        
     }
     
     func based(){
@@ -162,7 +262,8 @@ class ViewController: UIViewController {
         num3 = String(number3)
 
         
-        label.text = String(number)
+        label1.text = String(number)
+        label2.text = String(number)
         set(button: Button1, str: self.num1)
         set(button: Button2, str: self.num2)
         set(button: Button3, str: self.num3)
