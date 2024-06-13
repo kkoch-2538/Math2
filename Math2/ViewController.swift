@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    let AnswerPlayer = try!AVAudioPlayer(data: NSDataAsset(name:"correctA")!.data)
+    let NotAnswerPlayer = try!AVAudioPlayer(data: NSDataAsset(name:"incorrectA")!.data)
+    
     var number: Int!
     var number1: Int!
     var number2: Int!
@@ -232,27 +237,57 @@ class ViewController: UIViewController {
         
         var answerText1:String=MarkButton1.currentTitle ?? ""
         var answerText2:String=MarkButton2.currentTitle ?? ""
-        var currentNumber: Int = 0
+        var currentNumber1: Int = 0
+        var currentNumber2: Int = 0
         
         Anumber1 = Int(num1)
         Anumber2 = Int(num2)
         Anumber3 = Int(num3)
         if answerText1 == "+"{
-            currentNumber = Anumber1 + Anumber2
+            currentNumber1 = Anumber1 + Anumber2
         }else if answerText1 == "-"{
-            currentNumber = Anumber1 - Anumber2
+            currentNumber1 = Anumber1 - Anumber2
         }else if answerText1 == "×"{
-            currentNumber = Anumber1 * Anumber2
+            currentNumber1 = Anumber1 * Anumber2
         }
-
-        //var currentNumber: Int = 0
-       
         
+        if answerText1 == "÷"{
+            while(currentNumber1 == 0){
+                currentNumber1 = Anumber1 - Anumber2
+                if currentNumber1 < Anumber2{
+                    break
+                }
+            }
+        }
+            
+        if answerText2 == "+"{
+            currentNumber2 = currentNumber1 + Anumber3
+        }else if answerText2 == "-"{
+            currentNumber2 = currentNumber1 - Anumber3
+        }else if answerText2 == "×"{
+            currentNumber2 = currentNumber1 * Anumber3
+        }
         
+        if answerText1 == "÷"{
+            while(currentNumber2 == 0){
+                currentNumber2 = currentNumber1 - Anumber3
+                if currentNumber2 < Anumber3{
+                    break
+                }
+            }
+        }
+        
+        if currentNumber2 == number{
+            AnswerPlayer.play()
+            print("正解")
+        }else {
+            NotAnswerPlayer.play()
+            print("不正解")
+        }
     }
     
     func based(){
-        number = Int.random(in: 1...50)
+        number = Int.random(in: 1...40)
         number1 = Int.random(in: 1...9)
         number2 = Int.random(in: 1...9)
         number3 = Int.random(in: 1...9)
