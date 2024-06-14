@@ -10,8 +10,8 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    let AnswerPlayer = try!AVAudioPlayer(data: NSDataAsset(name:"correctA")!.data)
-    let NotAnswerPlayer = try!AVAudioPlayer(data: NSDataAsset(name:"incorrectA")!.data)
+    let AnswerPlayer = try!AVAudioPlayer(data: NSDataAsset(name:"CorrectA")!.data)
+    let NotAnswerPlayer = try!AVAudioPlayer(data: NSDataAsset(name:"IncorrectA")!.data)
     
     var number: Int!
     var number1: Int!
@@ -127,8 +127,10 @@ class ViewController: UIViewController {
         if(select == 5){
             MarkButton1.titleLabel?.adjustsFontSizeToFitWidth = true
             set(button: MarkButton1, str: "+")
+            print(MarkButton1.currentTitle)
         }else if(select == 6){
             set(button: MarkButton2, str: "+")
+            print(MarkButton1.currentTitle)
             
         }
     }
@@ -190,59 +192,63 @@ class ViewController: UIViewController {
     
     @IBAction func sameNumber1(){
         set(button: AnswerNumber3, str: "1")
-        set(button: AnswerNumber4, str: "1")
+        //set(button: AnswerNumber4, str: "1")
     }
     
     @IBAction func sameNumber2(){
         set(button: AnswerNumber3, str: "2")
-        set(button: AnswerNumber4, str: "2")
+        //set(button: AnswerNumber4, str: "2")
     }
     
     @IBAction func sameNumber3(){
         set(button: AnswerNumber3, str: "3")
-        set(button: AnswerNumber4, str: "3")
+        //set(button: AnswerNumber4, str: "3")
     }
     
     @IBAction func sameNumber4(){
         set(button: AnswerNumber3, str: "4")
-        set(button: AnswerNumber4, str: "4")
+        //set(button: AnswerNumber4, str: "4")
     }
     
     @IBAction func sameNumber5(){
         set(button: AnswerNumber3, str: "5")
-        set(button: AnswerNumber4, str: "5")
+        //set(button: AnswerNumber4, str: "5")
     }
     
     @IBAction func sameNumber6(){
         set(button: AnswerNumber3, str: "6")
-        set(button: AnswerNumber4, str: "6")
+        //set(button: AnswerNumber4, str: "6")
     }
     
     @IBAction func sameNumber7(){
         set(button: AnswerNumber3, str: "7")
-        set(button: AnswerNumber4, str: "7")
+        //set(button: AnswerNumber4, str: "7")
     }
     
     @IBAction func sameNumber8(){
         set(button: AnswerNumber3, str: "8")
-        set(button: AnswerNumber4, str: "8")
+        //set(button: AnswerNumber4, str: "8")
     }
     
     @IBAction func sameNumber9(){
         set(button: AnswerNumber3, str: "9")
-        set(button: AnswerNumber4, str: "9")
+        //set(button: AnswerNumber4, str: "9")
     }
     
     @IBAction func AnswerCheckButton(){
         
-        var answerText1:String=MarkButton1.currentTitle ?? ""
-        var answerText2:String=MarkButton2.currentTitle ?? ""
+        var answerText1:String=MarkButton1.titleLabel?.text ?? ""
+        var answerText2:String=MarkButton2.titleLabel?.text ?? ""
         var currentNumber1: Int = 0
         var currentNumber2: Int = 0
+        
+        print(MarkButton1.titleLabel?.text)
+        print(MarkButton2.currentTitle)
         
         Anumber1 = Int(num1)
         Anumber2 = Int(num2)
         Anumber3 = Int(num3)
+        
         if answerText1 == "+"{
             currentNumber1 = Anumber1 + Anumber2
         }else if answerText1 == "-"{
@@ -268,7 +274,7 @@ class ViewController: UIViewController {
             currentNumber2 = currentNumber1 * Anumber3
         }
         
-        if answerText1 == "÷"{
+        if answerText2 == "÷"{
             while(currentNumber2 == 0){
                 currentNumber2 = currentNumber1 - Anumber3
                 if currentNumber2 < Anumber3{
@@ -276,7 +282,10 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
+        print(currentNumber1)
+        print(currentNumber2)
+        print(answerText1)
+        print(answerText2)
         if currentNumber2 == number{
             AnswerPlayer.play()
             print("正解")
@@ -287,7 +296,8 @@ class ViewController: UIViewController {
     }
     
     func based(){
-        number = Int.random(in: 1...40)
+        
+        number = Int.random(in: 1...15)
         number1 = Int.random(in: 1...9)
         number2 = Int.random(in: 1...9)
         number3 = Int.random(in: 1...9)
@@ -302,7 +312,6 @@ class ViewController: UIViewController {
         set(button: Button1, str: self.num1)
         set(button: Button2, str: self.num2)
         set(button: Button3, str: self.num3)
-        
         
     }
     
